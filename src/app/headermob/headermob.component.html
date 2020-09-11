@@ -1,0 +1,44 @@
+<div class="toprow">
+    <div id="site-overlay"></div>
+
+    <div id="cont">
+        <div id="menu-bars">
+            <button id="menu-bars-bars" (click)="toggletheCollapse(true)" class="btn btn-stacked toggle-nav" type="button" tabindex="0"><span class="mobile-buttons-text">Menu</span></button>
+        </div>
+        <div id="pru-logo" ><a href="#" id="mainPruLogo"><img src=""></a></div>
+    </div>
+</div>
+<nav id="coll-mob" class="nav-mobile">
+    <div class="controls">
+        <button type="button" class="toggle-nav" id="menu-bars-close" (click)="toggleTheCollapse(false)"><span class="fa fa-times"></span>Close</button>
+    </div>
+    <div id="sMobile-hiUser" class="hiUser"><span class="fa fa-user" id="userImgSM"></span>Hi,User</div>
+    <ul class="list-group panel-group" id="nav-mobile-collapse" role="tablist">
+        <ng-container *ngFor="let navg of navigation ; let i=index">
+            <li *ngIf="navg.sub">
+                <a class="collapsed accordion-icon-control" data-toggle="collapse" id="navi{{i}}" href="#nav{{i}}" aria-expanded="false" role="tab"><span class="accordion-icon"></span>{{navg.caption}}</a>
+                <div id="nav{{i}}" class="collapse" role="tabpanel">
+                  <ul>
+                      <ng-container *ngFor="let secondary of navg.sub">
+                          <li *ngIf="secondar.caption!='Beneficiaries'"><a href="#"></a></li>
+                          <li id="beneList" *ngIf="secondary.caption=='Beneficiaries'"><a id="bene" href="#">{{secondary.caption}}</a></li>
+                      </ng-container>
+                  </ul>  
+                </div>
+            </li>
+            <li *ngIf="navg.sub==undefined"><a href="{{navg.url}}" id="nav{{i}}">{{navg.caption }}</a></li>
+        </ng-container>
+    </ul>
+    <div>
+        <ul class="list-group list-unstyled global-links">
+            <ng-container *ngFor="let header of headerlinks; let i=index">
+                <li>
+                    <a class="list-group-item" href="#">{{header.caption}}</a>
+                </li>
+            </ng-container>
+            <li>
+                <a id="sMobile-linkLogOut"><span class="fa fa-lock" id="sMobile-logOutIcon"></span><span id="sMobile-logOut">Logout</span></a>
+            </li>
+        </ul>
+    </div>
+</nav>

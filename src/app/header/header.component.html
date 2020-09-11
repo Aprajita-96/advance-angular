@@ -1,0 +1,52 @@
+<header role="banner" class="background-pru-blue">
+    <div id="header">
+        <div class="topnav" role="banner">
+            <div id="global-links-bar" role="navigation" class="text-right">
+                <div class="container">
+                    <ul class="list-inline">
+                        <li><a href="#main-content" id="skip" title="skip to main content" class="sr-only sr-only-focusavle"></a></a></li>
+                        <li><a>Change Password</a></li>
+                        <li><a>Contact Us</a></li>
+                        <li><a>Forms</a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="toprow">
+            <div class="container-lg">
+                <div class="toprow-left">
+                    <div class="logo"><a href="#" title="logo" id="mainPruLogo"><img src="assets/images/logo.png"> </a></div>
+                    <nav style="display:inline-block" id="headerRow" role="navigation">
+                    <ul id="twolinetext" class="navtabs visible-lg-inline-block">
+                        <ng-container *ngFor="let navg of navigation;let i=index">
+                        <li class="top-nav-item" id=""><a href={{navg.url}} id="nav{{i}} (mouseover)="hover($event,true,i,navg.sub") (mouseleave)="hover($event,false,i,navg.sub)"></a>
+                            <div id="nav{{i}}{{i}}" class="secondarynavigation">
+                                <div class="container">
+                                    <ul class="navpane">
+                                        <ng-container *ngFor="let secondary of navg.sub">
+                                            <li>
+                                                <a *ngIf="secondary.caption!='Beneficiaries'">{{secondary.caption}}</a>
+                                                <a id="beneficiaryLink" *ngIf="secondary.caption=='Beneficiaries'">{{secondary.caption}}</a>
+                                            </li>
+                                        </ng-container>
+                                    </ul>
+                                </div>
+                            </div>
+                        </ng-container>
+                    </ul>
+                    </nav>
+                </div>
+                <div id="toprow-right" *ngIf="logout">
+                    <div class="btn-group dropdown"> <button id="linkHiUser" href="javascript:void(0)" class="btn btn-primary dropdown-toggle" role="button" data-toggle="dropdown" aria-expanded="false"><span class="fa fa-user" id="userIcon"></span><span id="hiUser">Hi,User</span></button>
+                        <ul id="ulProfile" class="dropdown-menu">
+                            <li *ngIf="myprofile"><a id="linkMyProfile"><span id="myprofile">My profile</span></a></li>
+
+                        </ul>
+                </div>
+                <a href="#" id="linkLogOut"><span class="fa fa-lock" id="logOutIcon"></span><span class="mobile-buttons-text" id="logOut">LogOut</span></a> 
+            </div>
+        </div>
+    </div>
+</header>

@@ -1,0 +1,23 @@
+
+<app-header *ngIf="!mobileview"></app-header>
+<app-headermob *ngIf="mobileview"></app-headermob>
+<router-outlet></router-outlet>
+<!-- <app-footer></app-footer> -->
+<div id="sessionModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static" aria-labelledby="sessionModalTxt">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-tittle" id="sessionModalTxt"><span class="fa fa-warning"> Session TimeOut</span></h2>
+            </div>
+            <div class="modal-body">
+                <p>Your session is about to expire.</p>
+                <p>You will be logged out in {{timeLeft}} {{timeoutText}}</p>
+            </div>
+            <div class="modal-footer row">
+                <div class="col-sm-6"><button id="btnTimeoutYes" type="button" class="btn btn-default btn-block" data-dismiss="modal" (click)="cancelTimer()" >Logout</button></div>
+                <div class="col-sm-6"><button id="btnTimeoutNo" type="button" class="btn btn-default btn-block" data-dismiss="modal" (click)="resetTimer()" >Continue Session</button></div>
+
+            </div>
+        </div>
+    </div>
+</div>
